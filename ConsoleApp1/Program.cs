@@ -15,6 +15,8 @@ namespace ConsoleApp1
         {
             using (var db = new ContosoUniversityEntities())
             {
+                db.Database.Log = Console.WriteLine;
+
                 QueryCourse(db);
 
                 InsertDepartment(db);
