@@ -18,19 +18,33 @@ namespace ConsoleApp1
             {
                 db.Database.Log = Console.WriteLine;
 
-                db.Configuration.LazyLoadingEnabled = false;
-                db.Configuration.ProxyCreationEnabled = false;
 
-                var department = db.Department.Include(p => p.Course);
+                var dept = db.Department.Find(1);
 
-                foreach (var dept in department)
-                {
-                    Console.WriteLine(dept.Name);
-                    foreach (var item in dept.Course)
-                    {
-                        Console.WriteLine("\t" + item.Title);
-                    }
-                }
+                dept.Name += "!";
+
+                //dept.ModifiedOn = DateTime.Now;
+
+                db.SaveChanges();
+
+
+
+
+
+
+                //db.Configuration.LazyLoadingEnabled = false;
+                //db.Configuration.ProxyCreationEnabled = false;
+
+                //var department = db.Department.AsNoTracking();
+
+                //foreach (var dept in department)
+                //{
+                //    Console.WriteLine(dept.Name);
+                //    foreach (var item in dept.Course)
+                //    {
+                //        Console.WriteLine("\t" + item.Title);
+                //    }
+                //}
 
                 //QueryCourse(db);
 
