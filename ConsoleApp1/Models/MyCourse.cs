@@ -10,6 +10,6 @@ namespace ConsoleApp1.Models
     {
         public int CourseID { get; set; }
         public string Title { get; set; }
-        public int Credtis { get; set; }
+        public int Credits { get; set; }
     }
 }

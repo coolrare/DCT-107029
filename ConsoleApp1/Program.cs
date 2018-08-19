@@ -24,7 +24,7 @@ namespace ConsoleApp1
 
                 foreach (var item in data)
                 {
-                    Console.WriteLine(item.Title);
+                    Console.WriteLine(item.Title + item.Credits);
                 }
 
 
