@@ -18,17 +18,32 @@ namespace ConsoleApp1
             {
                 db.Database.Log = Console.WriteLine;
 
+                var c = new Course()
+                {
+                    Title = "Entity Framework 6.2",
+                    Credits = CourseCredits.Awesome,
+                    DepartmentID = 1
+                };
+
+                db.Course.Add(c);
+                db.SaveChanges();
+
+                var a = db.Course.Find(c.CourseID);
+
+                Console.WriteLine(a.Credits.ToString());
+
+
                 //var dept = db.Department.Find(32);
                 //dept.Name = "John"+DateTime.Now;
                 //Console.ReadLine();
                 //db.SaveChanges();
 
-                var items = db.GetDepartment(1);
+                //var items = db.GetDepartment(1);
 
-                foreach (var item in items)
-                {
-                    Console.WriteLine(item.Name);
-                }
+                //foreach (var item in items)
+                //{
+                //    Console.WriteLine(item.Name);
+                //}
 
 
                 //var dept = db.Department.Find(33);
