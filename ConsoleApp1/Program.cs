@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace ConsoleApp1
 {
@@ -17,13 +18,24 @@ namespace ConsoleApp1
             {
                 db.Database.Log = Console.WriteLine;
 
-                QueryCourse(db);
+                var department = db.Department.Include(p => p.Course);
 
-                InsertDepartment(db);
+                foreach (var dept in department)
+                {
+                    Console.WriteLine(dept.Name);
+                    foreach (var item in dept.Course)
+                    {
+                        Console.WriteLine("\t" + item.Title);
+                    }
+                }
 
-                UpdateDepartment(db);
+                //QueryCourse(db);
 
-                RemoveDepartment(db);
+                //InsertDepartment(db);
+
+                //UpdateDepartment(db);
+
+                //RemoveDepartment(db);
             }
         }
 
