@@ -23,6 +23,7 @@ namespace ConsoleApp1
 
                 dept.Name += "!";
 
+                db.Entry(dept).State = EntityState.Added;
                 //dept.ModifiedOn = DateTime.Now;
 
                 db.SaveChanges();

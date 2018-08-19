@@ -12,7 +12,8 @@ namespace MvcApplication1.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using System.Web;
+
     public partial class ContosoUniversityEntities : DbContext
     {
         public ContosoUniversityEntities()
@@ -30,5 +31,10 @@ namespace MvcApplication1.Models
         public virtual DbSet<Enrollment> Enrollment { get; set; }
         public virtual DbSet<OfficeAssignment> OfficeAssignment { get; set; }
         public virtual DbSet<Person> Person { get; set; }
+
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
     }
 }
