@@ -11,6 +11,7 @@ namespace ConsoleApp1.Models
 {
     using System;
     
+    [Flags]
     public enum CourseCredits : int
     {
         Poor = 0,

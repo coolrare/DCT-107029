@@ -404,7 +404,7 @@
           <Property Type="Int32" Name="DepartmentID" Nullable="false" />
           <Property Type="Binary" Name="RowVersion" Nullable="false" MaxLength="8" />
         </ComplexType>
-        <EnumType Name="CourseCredits">
+        <EnumType Name="CourseCredits" IsFlags="true">
           <Member Name="Poor" Value="0" />
           <Member Name="Good" Value="1" />
           <Member Name="Better" Value="2" />

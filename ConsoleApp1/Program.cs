@@ -18,19 +18,32 @@ namespace ConsoleApp1
             {
                 db.Database.Log = Console.WriteLine;
 
-                var c = new Course()
+                var data = db.Database.SqlQuery<MyCourse>(
+                    "SELECT [CourseID],[Title],[Credits] FROM [dbo].[Course] WHERE CourseID <= @p0",
+                    2);
+
+                foreach (var item in data)
                 {
-                    Title = "Entity Framework 6.2",
-                    Credits = CourseCredits.Awesome,
-                    DepartmentID = 1
-                };
+                    Console.WriteLine(item.Title);
+                }
 
-                db.Course.Add(c);
-                db.SaveChanges();
 
-                var a = db.Course.Find(c.CourseID);
 
-                Console.WriteLine(a.Credits.ToString());
+                //var c = new Course()
+                //{
+                //    Title = "Entity Framework 6.2",
+                //    Credits = CourseCredits.Awesome | CourseCredits.Better,
+                //    DepartmentID = 1
+                //};
+
+                //db.Course.Add(c);
+                //db.SaveChanges();
+
+                //var a = db.Course.Find(c.CourseID);
+
+                ////(a.Credits & CourseCredits.Awesome) == CourseCredits.Awesome
+
+                //Console.WriteLine(a.Credits.ToString());
 
 
                 //var dept = db.Department.Find(32);
