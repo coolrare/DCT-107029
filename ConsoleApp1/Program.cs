@@ -19,13 +19,11 @@ namespace ConsoleApp1
                 db.Database.Log = Console.WriteLine;
 
 
-                var dept = db.Department.Find(1);
+                //var dept = db.Department.Find(33);
+                //db.Entry(dept).State = EntityState.Deleted;
 
-                dept.Name += "!";
 
-                db.Entry(dept).State = EntityState.Added;
-                //dept.ModifiedOn = DateTime.Now;
-
+                db.Entry(new Department() { DepartmentID = 33 }).State = EntityState.Deleted;
                 db.SaveChanges();
 
 
